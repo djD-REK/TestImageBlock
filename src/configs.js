@@ -12,6 +12,7 @@ export const configSchema = {
 }
 
 export const defaultConfig = {
+  text: "Example text",
   image: ElementPropTypes.image.default,
   imageWithPlaceholder: {
     uriBase: "http://d21ivvgspl06jm.cloudfront.net/",
