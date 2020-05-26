@@ -33,3 +33,24 @@ const Block = (props) => {
   const { number } = props
   return <div>{number} is a terrific number</div>
 }
+
+const Block = (props) => {
+  const { string } = props
+  return <div>{string}</div>
+}
+
+const Block = (props) => {
+  const { date } = props
+  return <div>{date.toLocaleDateString()}</div>
+}
+
+const Block = (props) => {
+  const { dateRange } = props
+  const [startDate, endDate] = dateRange
+  const now = new Date()
+  return now > startDate || now < endDate ? (
+    <div>During the sale</div>
+  ) : (
+    <div>Not during the sale</div>
+  )
+}

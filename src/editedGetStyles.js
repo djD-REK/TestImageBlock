@@ -21,3 +21,32 @@ export const getStyles = (blockConfig) => {
     },
   }
 }
+
+export const getStyles = (blockConfig) => {
+  const { string } = blockConfig
+  return {
+    example: {
+      fontSize: string,
+    },
+  }
+}
+
+export const getStyles = (blockConfig) => {
+  const { color } = blockConfig
+  return {
+    example: {
+      color: color,
+    },
+  }
+}
+
+export const getStyles = (blockConfig) => {
+  const { slider } = blockConfig
+  const sliderValue = slider.selectedValue
+
+  return {
+    example: {
+      fontSize: `${sliderValue}rem`,
+    },
+  }
+}
