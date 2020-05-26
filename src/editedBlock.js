@@ -54,3 +54,54 @@ const Block = (props) => {
     <div>Not during the sale</div>
   )
 }
+
+const Block = (props) => {
+  const { editorFull } = props // Rich text (HTML)
+  const outputAsMarkup = { __html: editorFull }
+  return <div dangerouslySetInnerHTML={outputAsMarkup}></div>
+}
+
+const Block = (props) => {
+  const { editorMinimal } = props // Rich text (HTML)
+  const outputAsMarkup = { __html: editorMinimal }
+  return <div dangerouslySetInnerHTML={outputAsMarkup}></div>
+}
+
+const Block = (props) => {
+  const { data } = props
+  const products = data.items
+  return (
+    <ul>{products && products.map((product) => <li>{product.name}</li>)}</ul>
+  )
+}
+
+const Block = (props) => {
+  const { data } = props
+  const product = data
+  return <div>{product.name}</div>
+}
+
+const Block = (props) => {
+  const { arrayOfShapes } = props
+  return (
+    <ul>
+      {arrayOfShapes.map((link) => (
+        <li>
+          <a href={link.url}>{link.text}</a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+export const configSchema = {
+  arrayOfShapes: {
+    label: "Array of Links",
+    type: ElementPropTypes.arrayOf(
+      ElementPropTypes.shape({
+        text: { label: "Text", type: ElementPropTypes.string },
+        url: { label: "Link", type: ElementPropTypes.string },
+      })
+    ),
+  },
+}
