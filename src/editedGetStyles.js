@@ -43,10 +43,18 @@ export const getStyles = (blockConfig) => {
 export const getStyles = (blockConfig) => {
   const { slider } = blockConfig
   const sliderValue = slider.selectedValue
-
   return {
     example: {
       fontSize: `${sliderValue}rem`,
+    },
+  }
+}
+
+export const getStyles = (blockConfig) => {
+  const { oneOf } = blockConfig
+  return {
+    example: {
+      textAlign: oneOf,
     },
   }
 }

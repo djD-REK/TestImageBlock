@@ -93,15 +93,3 @@ const Block = (props) => {
     </ul>
   )
 }
-
-export const configSchema = {
-  arrayOfShapes: {
-    label: "Array of Links",
-    type: ElementPropTypes.arrayOf(
-      ElementPropTypes.shape({
-        text: { label: "Text", type: ElementPropTypes.string },
-        url: { label: "Link", type: ElementPropTypes.string },
-      })
-    ),
-  },
-}
