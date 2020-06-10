@@ -1,32 +1,34 @@
 import React from "react"
-import { css, StyleSheet } from "aphrodite/no-important"
-import { getStyles } from "./getStyles"
 import { defaultConfig } from "./configs"
 
 const Block = (props) => {
-  const classes = StyleSheet.create(getStyles(props))
-  const { image, imageWithPlaceholder, text } = props
-  console.log(JSON.stringify(image))
-  return (
-    <React.Fragment>
-      {image.uriBase && (
-        <img
-          src={image.uriBase + image.imagePath}
-          alt={image.altText}
-          width={image.width}
-          height={image.height}
-        />
-      )}
-      {!image.uriBase && <hr />}
-      <img
-        src={imageWithPlaceholder.uriBase + imageWithPlaceholder.imagePath}
-        alt={imageWithPlaceholder.altText}
-        width={imageWithPlaceholder.width}
-        height={imageWithPlaceholder.height}
-      />
-      <h1 className={css(classes.example)}>{text}</h1>
-    </React.Fragment>
+  // Destructure the image from the Block props:
+  const { image } = props
+
+  // Build the <img> tag to output:
+  const outputImage = (
+    <img
+      src={image.uriBase + image.imagePath}
+      alt={image.altText}
+      width={image.width}
+      height={image.height}
+      style={{ border: "1px solid black" }} // For demonstration purposes only
+      // data-vol-skip-lazy // Uncomment to skip lazy loading for this image
+    />
   )
+
+  // Alternatively, with optional Cloudinary transforms:
+  /* const outputImage = (
+    <img
+      src={image.uriBase + "w_200,h_200,c_limit/" + image.imagePath}
+      alt={image.altText}
+      style={{ border: "1px solid black" }} // For demonstration purposes only
+    />
+  ) */
+
+  // Return an image only if there is an image (image.uriBase is not undefined)
+  return image.uriBase ? outputImage : null
+  // Returning null will render an empty Block with no content
 }
 
 Block.defaultProps = defaultConfig

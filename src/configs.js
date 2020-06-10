@@ -5,20 +5,16 @@ export const configSchema = {
     label: "Image",
     type: ElementPropTypes.image,
   },
-  imageWithPlaceholder: {
-    label: "Image With Default",
-    type: ElementPropTypes.image,
-  },
 }
 
 export const defaultConfig = {
-  text: "Example text",
-  image: ElementPropTypes.image.default,
-  imageWithPlaceholder: {
-    uriBase: "http://d21ivvgspl06jm.cloudfront.net/",
-    imagePath: "element-block-assets/slideshow/slide2.jpg",
-    altText: "Monument Valley",
-    width: 1600,
-    height: 500,
+  image: {
+    uriBase: "https://res.cloudinary.com/dyx4yhvoq/image/upload/",
+    imagePath: "v1545428185/images/tcp-no-image.jpg",
+    altText: "Placeholder Image",
+    width: 360, // pixels
+    height: 270, // pixels
   },
+  // Alternative default image configuration without a placeholder image:
+  // image: ElementPropTypes.image.default,
 }
